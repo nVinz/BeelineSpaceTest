@@ -1,0 +1,1614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - USER 1%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">3</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${login}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <stringProp name="CookieManager.policy">default</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="все3.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\new_new_new_all.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">login</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2. PUT - /calendar/{login}/days" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="2. PUT - /calendar/${login}/days" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;monday&quot;:&#xd;
+		{&quot;type&quot;:&quot;OFFICE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-15T00:00:00Z&quot;},&#xd;
+	&quot;tuesday&quot;:&#xd;
+		{&quot;type&quot;:&quot;OFFICE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-16T00:00:00Z&quot;},&#xd;
+	&quot;wednesday&quot;:&#xd;
+		{&quot;type&quot;:&quot;OFFICE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-17T00:00:00Z&quot;},&#xd;
+	&quot;thursday&quot;:&#xd;
+		{&quot;type&quot;:&quot;BEE_FREE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-18T00:00:00Z&quot;},&#xd;
+	&quot;friday&quot;:&#xd;
+		{&quot;type&quot;:&quot;BEE_FREE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-19T00:00:00Z&quot;},&#xd;
+	&quot;saturday&quot;:&#xd;
+		{&quot;type&quot;:&quot;DAY_OFF&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-20T00:00:00Z&quot;},&#xd;
+	&quot;sunday&quot;:&#xd;
+		{&quot;type&quot;:&quot;DAY_OFF&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-21T00:00:00Z&quot;}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/calendar/${login}/days</stringProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 1.2 - 3" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="986127914">
+                  <stringProp name="48565">1.2</stringProp>
+                  <stringProp name="48565">1.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="986241002">
+                  <stringProp name="48568">1.5</stringProp>
+                  <stringProp name="48568">1.5</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="987124874">
+                  <stringProp name="48571">1.8</stringProp>
+                  <stringProp name="48571">1.8</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2075977802">
+                  <stringProp name="49525">2.1</stringProp>
+                  <stringProp name="49525">2.1</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2076090890">
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2076974762">
+                  <stringProp name="49531">2.7</stringProp>
+                  <stringProp name="49531">2.7</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1685674740">
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="5. GET - /calendar/{login}/stat?startDate={startDate}&amp;endDate={endDate2}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="5. GET - /calendar/${login}/stat?startDate=${startDate}&amp;endDate=${endDate2}" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/calendar/${login}/stat?startDate=${startDate}&amp;endDate=${endDate2}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 1.2 - 3" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="986127914">
+                  <stringProp name="48565">1.2</stringProp>
+                  <stringProp name="48565">1.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="986241002">
+                  <stringProp name="48568">1.5</stringProp>
+                  <stringProp name="48568">1.5</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="987124874">
+                  <stringProp name="48571">1.8</stringProp>
+                  <stringProp name="48571">1.8</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2075977802">
+                  <stringProp name="49525">2.1</stringProp>
+                  <stringProp name="49525">2.1</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2076090890">
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2076974762">
+                  <stringProp name="49531">2.7</stringProp>
+                  <stringProp name="49531">2.7</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1685674740">
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - USER 2%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">2</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${login}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <stringProp name="CookieManager.policy">default</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="все3.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\new_new_new_all.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">login</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="4. GET - /calendar/{login}/stat?startDate={startDate}&amp;endDate={endDate1}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="4. GET - /calendar/${login}/stat?startDate=${startDate}&amp;endDate=${endDate1}" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/calendar/${login}/stat?startDate=${startDate}&amp;endDate=${endDate1}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 2.4 - 6" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="2076090890">
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="555668202">
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="335552714">
+                  <stringProp name="50491">3.6</stringProp>
+                  <stringProp name="50491">3.6</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1424518730">
+                  <stringProp name="51448">4.2</stringProp>
+                  <stringProp name="51448">4.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1425515690">
+                  <stringProp name="51454">4.8</stringProp>
+                  <stringProp name="51454">4.8</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="-1779714806">
+                  <stringProp name="52411">5.4</stringProp>
+                  <stringProp name="52411">5.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1685787828">
+                  <stringProp name="54">6</stringProp>
+                  <stringProp name="54">6</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - USER 3%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">5</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${login}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <stringProp name="CookieManager.policy">default</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="все3.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\new_new_new_all.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">login</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="7. GET - /user?logins={logins}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="7. GET - /user?logins=${logins}" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/user?logins=${logins}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 3.6 - 9" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="335552714">
+                  <stringProp name="50491">3.6</stringProp>
+                  <stringProp name="50491">3.6</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1425402602">
+                  <stringProp name="51451">4.5</stringProp>
+                  <stringProp name="51451">4.5</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="-1779714806">
+                  <stringProp name="52411">5.4</stringProp>
+                  <stringProp name="52411">5.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="-713759222">
+                  <stringProp name="53371">6.3</stringProp>
+                  <stringProp name="53371">6.3</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="376090666">
+                  <stringProp name="54331">7.2</stringProp>
+                  <stringProp name="54331">7.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1442046250">
+                  <stringProp name="55291">8.1</stringProp>
+                  <stringProp name="55291">8.1</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1685900916">
+                  <stringProp name="57">9</stringProp>
+                  <stringProp name="57">9</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - USER 6%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">2</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${login}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <stringProp name="CookieManager.policy">default</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="все3.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\new_new_new_all.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">login</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="8. GET - /user?login={login}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="8. GET - /user?login=${login}" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/user?login=${login}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 7.2 - 9" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="376090666">
+                  <stringProp name="54331">7.2</stringProp>
+                  <stringProp name="54331">7.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="555894378">
+                  <stringProp name="57">9</stringProp>
+                  <stringProp name="57">9</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1675084490">
+                  <stringProp name="1507369">10.8</stringProp>
+                  <stringProp name="1507369">10.8</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="-464077334">
+                  <stringProp name="1509289">12.6</stringProp>
+                  <stringProp name="1509289">12.6</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="-1091755190">
+                  <stringProp name="1511209">14.4</stringProp>
+                  <stringProp name="1511209">14.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1064050282">
+                  <stringProp name="1513129">16.2</stringProp>
+                  <stringProp name="1513129">16.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1303473332">
+                  <stringProp name="1575">18</stringProp>
+                  <stringProp name="1575">18</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - USER 13%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">3</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${login}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <stringProp name="CookieManager.policy">default</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="все3.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\new_new_new_all.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">login</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3. GET - /calendar/{login}/history?date={dateTime}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="3. GET - /calendar/${login}/history?date=${dateTime}" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/calendar/${login}/history?date=${dateTime}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 15.6 - 39" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="1970502250">
+                  <stringProp name="1512172">15.6</stringProp>
+                  <stringProp name="1512172">15.6</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1974314506">
+                  <stringProp name="1516015">19.5</stringProp>
+                  <stringProp name="1516015">19.5</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1998146314">
+                  <stringProp name="1540039">23.4</stringProp>
+                  <stringProp name="1540039">23.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2001958570">
+                  <stringProp name="1543882">27.3</stringProp>
+                  <stringProp name="1543882">27.3</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2025790378">
+                  <stringProp name="1567906">31.2</stringProp>
+                  <stringProp name="1567906">31.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2029602634">
+                  <stringProp name="1571749">35.1</stringProp>
+                  <stringProp name="1571749">35.1</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1602059060">
+                  <stringProp name="1638">39</stringProp>
+                  <stringProp name="1638">39</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - USER 70%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">160</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${login}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          <stringProp name="CookieManager.policy">default</stringProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="все3.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\new_new_new_all.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">true</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">login</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. GET - /calendar/{login}/days?date={dateTime}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1. GET - /calendar/${login}/days?date=${dateTime}" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/calendar/${login}/days?date=${dateTime}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 84 - 210" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="245471114">
+                  <stringProp name="1788">84</stringProp>
+                  <stringProp name="1788">84</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1017867946">
+                  <stringProp name="48630">105</stringProp>
+                  <stringProp name="48630">105</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1024867498">
+                  <stringProp name="48693">126</stringProp>
+                  <stringProp name="48693">126</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1055761354">
+                  <stringProp name="48756">147</stringProp>
+                  <stringProp name="48756">147</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1086655210">
+                  <stringProp name="48819">168</stringProp>
+                  <stringProp name="48819">168</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1094425546">
+                  <stringProp name="48882">189</stringProp>
+                  <stringProp name="48882">189</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="-1054683564">
+                  <stringProp name="49617">210</stringProp>
+                  <stringProp name="49617">210</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - HEAD 1%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">2</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${head}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="руководители.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\managers.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">head</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="B. PUT - /calendar/{head}/days" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="B. PUT - /calendar/${head}/days" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;monday&quot;:&#xd;
+		{&quot;type&quot;:&quot;OFFICE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-15T00:00:00Z&quot;},&#xd;
+	&quot;tuesday&quot;:&#xd;
+		{&quot;type&quot;:&quot;OFFICE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-16T00:00:00Z&quot;},&#xd;
+	&quot;wednesday&quot;:&#xd;
+		{&quot;type&quot;:&quot;OFFICE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-17T00:00:00Z&quot;},&#xd;
+	&quot;thursday&quot;:&#xd;
+		{&quot;type&quot;:&quot;BEE_FREE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-18T00:00:00Z&quot;},&#xd;
+	&quot;friday&quot;:&#xd;
+		{&quot;type&quot;:&quot;BEE_FREE&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-19T00:00:00Z&quot;},&#xd;
+	&quot;saturday&quot;:&#xd;
+		{&quot;type&quot;:&quot;DAY_OFF&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-20T00:00:00Z&quot;},&#xd;
+	&quot;sunday&quot;:&#xd;
+		{&quot;type&quot;:&quot;DAY_OFF&quot;,&quot;comment&quot;:&quot;&quot;,&quot;status&quot;:&quot;DRAFT&quot;,&quot;date&quot;:&quot;2019-07-21T00:00:00Z&quot;}&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/calendar/${head}/days</stringProp>
+            <stringProp name="HTTPSampler.method">PUT</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 1.2 - 3" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="986127914">
+                  <stringProp name="48565">1.2</stringProp>
+                  <stringProp name="48565">1.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="986241002">
+                  <stringProp name="48568">1.5</stringProp>
+                  <stringProp name="48568">1.5</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="987124874">
+                  <stringProp name="48571">1.8</stringProp>
+                  <stringProp name="48571">1.8</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2075977802">
+                  <stringProp name="49525">2.1</stringProp>
+                  <stringProp name="49525">2.1</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2076090890">
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="2076974762">
+                  <stringProp name="49531">2.7</stringProp>
+                  <stringProp name="49531">2.7</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1685674740">
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup guiclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroupGui" testclass="com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup" testname="bzm - Concurrency Thread Group - HEAD 2%" enabled="true">
+        <elementProp name="ThreadGroup.main_controller" elementType="com.blazemeter.jmeter.control.VirtualUserController"/>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="TargetLevel">4</stringProp>
+        <stringProp name="RampUp">240</stringProp>
+        <stringProp name="Steps">24</stringProp>
+        <stringProp name="Hold">0</stringProp>
+        <stringProp name="LogFilename"></stringProp>
+        <stringProp name="Iterations"></stringProp>
+        <stringProp name="Unit">M</stringProp>
+      </com.blazemeter.jmeter.threads.concurrency.ConcurrencyThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Host</stringProp>
+              <stringProp name="Header.value">space-test.beeline.ru</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate, br</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Compress</stringProp>
+              <stringProp name="Header.value">null</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">remote_user</stringProp>
+              <stringProp name="Header.value">${head}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="dateTime" elementType="Argument">
+              <stringProp name="Argument.name">dateTime</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="startDate" elementType="Argument">
+              <stringProp name="Argument.name">startDate</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate1" elementType="Argument">
+              <stringProp name="Argument.name">endDate1</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P7D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="endDate2" elementType="Argument">
+              <stringProp name="Argument.name">endDate2</stringProp>
+              <stringProp name="Argument.value">${__timeShift(yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;, ${startDate}, P21D,,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="logins" elementType="Argument">
+              <stringProp name="Argument.name">logins</stringProp>
+              <stringProp name="Argument.value">AAAbakumov,AAAbakumova,AAAbazov,AAAbdulov,AAAbramovskiy,AAADavydova,AAAdudin,AAAgaev,AAAgapov,AAAgapova</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="руководители.csv" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">\managers.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">head</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="A. GET -/user/approve" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="A. GET -/user/approve" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">space-test.beeline.ru</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/beefreecalendar/backend/user/approve</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="jp@gc - Throughput Shaping Timer 2.4 - 6" enabled="true">
+              <collectionProp name="load_profile">
+                <collectionProp name="2076090890">
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="49528">2.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="555668202">
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="51">3</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="335552714">
+                  <stringProp name="50491">3.6</stringProp>
+                  <stringProp name="50491">3.6</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1424518730">
+                  <stringProp name="51448">4.2</stringProp>
+                  <stringProp name="51448">4.2</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1425515690">
+                  <stringProp name="51454">4.8</stringProp>
+                  <stringProp name="51454">4.8</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="-1779714806">
+                  <stringProp name="52411">5.4</stringProp>
+                  <stringProp name="52411">5.4</stringProp>
+                  <stringProp name="1511391">1440</stringProp>
+                </collectionProp>
+                <collectionProp name="1685787828">
+                  <stringProp name="54">6</stringProp>
+                  <stringProp name="54">6</stringProp>
+                  <stringProp name="1633500">5760</stringProp>
+                </collectionProp>
+              </collectionProp>
+            </kg.apc.jmeter.timers.VariableThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">\resultStress.xml</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
